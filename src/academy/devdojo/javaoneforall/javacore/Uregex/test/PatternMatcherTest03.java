@@ -3,16 +3,18 @@ package academy.devdojo.javaoneforall.javacore.Uregex.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternMatcherTest02 {
+public class PatternMatcherTest03 {
     public static void main(String[] args) {
-        // \d - all the digits 0-9
-        // \D - everything that is not \d
+        // \d - All the digits 0-9
+        // \D - Everything that is not \d
         // \s - all the blank spaces \t \r \f \n
         // \S - everything that is not \s
         // \w - all the letters a-zA-Z, 0-9, _
         // \W - everything that is not \w
-        String regex = "\\W";
-        String text = "@!_hu 2\tuh231uh";
+        // []
+//        String regex = "[a-zA-C]";
+        String regex = "0[xX][0-9a-fA-F]";
+        String text = "12 0x 0x 0xFFABC 0x10G 0x1";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
@@ -24,5 +26,8 @@ public class PatternMatcherTest02 {
         while (matcher.find()) {
             System.out.println(matcher.start() + " " + matcher.group());
         }
+
+        int hexNumber = 0x1;
+        System.out.println(hexNumber);
     }
 }
